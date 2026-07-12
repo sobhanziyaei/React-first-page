@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 14px;
+  flex-shrink: 0;
+}
+
+.header__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.header__btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  color: var(--text-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s;
+}
+
+.header__btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__brand-name {
+  font-size: 26px;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header__brand-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* ناوبری افقی دسکتاپ - به‌صورت پیش‌فرض مخفی */
+.header__nav {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 13px;
+  color: var(--text-500);
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.15s;
+}
+
+.header__nav-item:hover {
+  background: #f1f5f9;
+  color: var(--text-700);
+}
+
+.header__nav-item.is-active {
+  background: #eff6ff;
+  color: var(--blue);
+}
+
+/* ---------- تبلت/دسکتاپ ---------- */
+@media (min-width: 641px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5eaf1;
+    padding: 14px 24px;
+    margin-bottom: 8px;
+  }
+
+  .header__nav {
+    display: flex;
+  }
+
+  /* در دسکتاپ دکمه منو لازم نیست */
+  .header__btn:not(.header__btn--profile) {
+    display: none;
+  }
+
+  .header__brand-name {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__nav {
+    gap: 10px;
+  }
+  .header__nav-item {
+    padding: 11px 20px;
+    font-size: 15px;
+  }
+}

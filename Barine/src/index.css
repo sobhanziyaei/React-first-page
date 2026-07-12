@@ -1,0 +1,69 @@
+:root {
+  /* Linear gradient colors */
+  --grad-1: #1e3a8a;
+  --grad-2: #2563eb;
+  --grad-3: #3b82f6;
+
+  /* Palette */
+  --mint: #d1fae5;
+  --blue: #2563eb;
+  --purple: #7c3aed;
+
+  /* Neutrals */
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text-900: #0f172a;
+  --text-700: #334155;
+  --text-500: #64748b;
+  --text-400: #94a3b8;
+  --border: #eef2f7;
+
+  /* Accents */
+  --green: #10b981;
+  --green-soft: #d1fae5;
+  --blue-soft: #dbeafe;
+  --purple-soft: #ede9fe;
+  --amber: #f59e0b;
+  --amber-soft: #fef3c7;
+  --red: #ef4444;
+  --red-soft: #fee2e2;
+
+  --gradient-brand: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #3b82f6 100%);
+
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+  --shadow-card: 0 10px 30px -12px rgba(30, 58, 138, 0.12);
+  --shadow-soft: 0 6px 18px -10px rgba(15, 23, 42, 0.15);
+
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #e2e8f0;
+  color: var(--text-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}

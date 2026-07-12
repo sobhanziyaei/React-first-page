@@ -1,0 +1,159 @@
+/* ---------- پایه (Mobile-first) ---------- */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.app__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex: 1;
+}
+
+.app__container {
+  width: 100%;
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-grid__top,
+.dashboard-grid__mid,
+.dashboard-grid__bottom {
+  display: contents;
+}
+
+/* در موبایل فضای کافی برای نوار ناوبری پایین */
+.app__main {
+  padding-bottom: 8px;
+}
+
+/* ---------- تبلت (≥ 641px) ---------- */
+@media (min-width: 641px) {
+  .app {
+    background: #eef2f7;
+  }
+
+  .app__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 12px 40px;
+  }
+
+  /* حذف حاشیه‌های ثابت افقی کارت‌ها تا در گرید درست جا بگیرند */
+  .app__container .profile-card,
+  .app__container .routes-card,
+  .app__container .chart-card,
+  .app__container .activity,
+  .app__container .page-title {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .app__container .profile-card {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .dashboard-grid__top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .dashboard-grid__mid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+    align-items: start;
+  }
+
+  .dashboard-grid__bottom {
+    display: block;
+  }
+
+  /* یکسان‌سازی حاشیه بالای کارت‌ها در گرید */
+  .app__container .routes-card,
+  .app__container .chart-card {
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .app__container .activity {
+    margin-top: 16px;
+  }
+}
+
+/* ---------- دسکتاپ (≥ 1024px) ---------- */
+@media (min-width: 1024px) {
+  .app__container {
+    max-width: 1240px;
+    padding: 0 24px 48px;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.15fr;
+    grid-template-areas:
+      'top    top'
+      'mid    bottom';
+    gap: 8px 16px;
+    align-items: start;
+  }
+
+  .dashboard-grid__top {
+    grid-area: top;
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    gap: 4px;
+    align-items: stretch;
+  }
+
+  .dashboard-grid__mid {
+    grid-area: mid;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dashboard-grid__bottom {
+    grid-area: bottom;
+    display: block;
+    position: sticky;
+    top: 24px;
+  }
+}
+
+/* ---------- موبایل کوچک: قاب گوشی ---------- */
+@media (max-width: 640px) {
+  body {
+    padding: 0;
+    background: #e2e8f0;
+  }
+
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+    height: 100vh;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .app__body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .app__body::-webkit-scrollbar {
+    width: 0;
+  }
+}
