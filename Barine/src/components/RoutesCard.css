@@ -34,6 +34,16 @@
   box-shadow: 0 6px 14px -6px rgba(124, 58, 237, 0.5);
 }
 
+/* inner glyph: white route PNG sized to sit inside the ~46px gradient box.
+   brightness(0) invert(1) forces pure white regardless of the PNG's color. */
+.routes-card__title-icon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
 .routes-card__titles {
   text-align: right;
 }
@@ -52,16 +62,17 @@
 .routes-card__add {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   color: var(--blue);
-  border: 1.5px solid #bfdbfe;
+  border: 1px solid #60a5fa;
   background: #fff;
-  padding: 9px 14px;
-  border-radius: 12px;
+  padding: 8px 12px;
+  border-radius: 11px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   transition: 0.15s;
   white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .routes-card__add:hover {
@@ -116,18 +127,20 @@
   box-shadow: 0 2px 8px -6px rgba(15, 23, 42, 0.12);
 }
 
-/* WHITE background for every row; only a faint per-theme border tint */
+/* WHITE background for every row; a visible per-theme border in the card's own
+   theme color, softened to ~35% opacity so it reads clearly but stays clean.
+   Consistent intensity across blue/green/purple. */
 .route-row--blue {
   background: #fff;
-  border-color: #eef2f8;
+  border-color: rgba(37, 99, 235, 0.35); /* --blue #2563eb */
 }
 .route-row--green {
   background: #fff;
-  border-color: #cdeede;
+  border-color: rgba(16, 185, 129, 0.35); /* --green #10b981 */
 }
 .route-row--purple {
   background: #fff;
-  border-color: #f0edf9;
+  border-color: rgba(124, 58, 237, 0.35); /* --purple #7c3aed */
 }
 
 .route-row__icon {
@@ -156,8 +169,8 @@
 
 /* colored per-theme PNG glyph sitting inside the ~44px pale box */
 .route-row__icon-img {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   display: block;
 }
@@ -170,7 +183,7 @@
 .route-row__cities {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   /* RTL + normal row: origin (from) on the RIGHT, arrow, destination (to) on the LEFT
      → reads «تهران ← اصفهان» origin-first */
   flex-direction: row;
@@ -180,17 +193,15 @@
   margin-bottom: 3px;
 }
 
-/* city-connector arrow: thin GREEN left-pointing line arrow for ALL rows,
-   regardless of row theme; small horizontal breathing room around it */
-.route-row__cities svg,
-.route-row--blue .route-row__cities svg,
-.route-row--green .route-row__cities svg,
-.route-row--purple .route-row__cities svg {
-  color: var(--green);
-  width: 18px;
-  height: 18px;
+/* city-connector arrow: per-theme colored PNG between the two city names,
+   vertically centered with small horizontal breathing room around it */
+.route-row__arrow-img {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  display: block;
   flex-shrink: 0;
-  margin: 0 6px;
+  margin: 0;
 }
 
 .route-row__action {
