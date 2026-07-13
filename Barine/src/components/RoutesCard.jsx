@@ -1,8 +1,14 @@
 import './RoutesCard.css';
 import { RouteIcon, PlusIcon, SearchIcon, TrashIcon, RouteArrow, ChevronLeft } from './Icons';
+import routeBlue from '../assets/route-blue-icon.png';
+import routeGreen from '../assets/route-green-icon.png';
+import routePurple from '../assets/route-purple-icon.png';
 
 // چرخه رنگ ردیف‌ها بر اساس ایندکس (آبی، سبز، بنفش)
 const ROW_THEMES = ['blue', 'green', 'purple'];
+
+// نگاشت رنگ تم ردیف به آیکون PNG رنگی متناظر
+const ROUTE_ICONS = { blue: routeBlue, green: routeGreen, purple: routePurple };
 
 // یک ردیف مسیر
 function RouteRow({ route, index, onDelete, onSelect }) {
@@ -11,7 +17,7 @@ function RouteRow({ route, index, onDelete, onSelect }) {
   return (
     <div className={`route-row route-row--${color}`}>
       <div className={`route-row__icon route-row__icon--${color}`}>
-        <RouteIcon size={22} />
+        <img src={ROUTE_ICONS[color] || ROUTE_ICONS.blue} alt="" className="route-row__icon-img" />
       </div>
 
       <div className="route-row__content">

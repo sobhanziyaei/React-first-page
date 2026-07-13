@@ -93,9 +93,11 @@ export const TrashIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// فلش نازک و ساده به سمت چپ بین نام دو شهر «تهران ← اصفهان»
 export const RouteArrow = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-    <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M20 12H4" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M9 7l-5 5 5 5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 

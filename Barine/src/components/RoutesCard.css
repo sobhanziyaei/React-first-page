@@ -105,47 +105,61 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-direction: row-reverse;
+  /* RTL container + normal row: first child (icon box) sits on the RIGHT,
+     last child (chevron) lands on the far LEFT */
+  flex-direction: row;
   padding: 12px;
   border-radius: 16px;
+  /* white background with a subtle, very light border */
   border: 1.5px solid #eef2f7;
   background: #fff;
+  box-shadow: 0 2px 8px -6px rgba(15, 23, 42, 0.12);
 }
 
+/* WHITE background for every row; only a faint per-theme border tint */
 .route-row--blue {
-  background: #f5f9ff;
-  border-color: #e0ecfe;
+  background: #fff;
+  border-color: #eef2f8;
 }
 .route-row--green {
-  background: #f2fdf8;
-  border-color: #c9f2e0;
+  background: #fff;
+  border-color: #cdeede;
 }
 .route-row--purple {
-  background: #faf8ff;
-  border-color: #e9e2fb;
+  background: #fff;
+  border-color: #f0edf9;
 }
 
 .route-row__icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
+/* light/pale background so the theme-colored icon stands out */
 .route-row__icon--blue {
-  background: var(--blue-soft);
+  background: #eff5ff;
   color: var(--blue);
 }
 .route-row__icon--green {
-  background: var(--green-soft);
+  background: #ecfdf5;
   color: var(--green);
 }
 .route-row__icon--purple {
-  background: var(--purple-soft);
+  background: #f6f3fe;
   color: var(--purple);
+}
+
+/* colored per-theme PNG glyph sitting inside the ~44px pale box */
+.route-row__icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
 }
 
 .route-row__content {
@@ -157,22 +171,26 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-direction: row-reverse;
+  /* RTL + normal row: origin (from) on the RIGHT, arrow, destination (to) on the LEFT
+     → reads «تهران ← اصفهان» origin-first */
+  flex-direction: row;
   color: var(--text-900);
   font-size: 16px;
   font-weight: 800;
   margin-bottom: 3px;
 }
 
-/* arrow color follows the row's theme (set inline per row) */
-.route-row--blue .route-row__cities svg {
-  color: var(--blue);
-}
-.route-row--green .route-row__cities svg {
-  color: var(--green);
-}
+/* city-connector arrow: thin GREEN left-pointing line arrow for ALL rows,
+   regardless of row theme; small horizontal breathing room around it */
+.route-row__cities svg,
+.route-row--blue .route-row__cities svg,
+.route-row--green .route-row__cities svg,
 .route-row--purple .route-row__cities svg {
-  color: var(--purple);
+  color: var(--green);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin: 0 6px;
 }
 
 .route-row__action {
@@ -185,10 +203,11 @@
 }
 
 .route-row__delete {
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
-  background: var(--red-soft);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  /* near-white, very light red fill with a thin red border and red icon */
+  background: #fff5f5;
   color: var(--red);
   display: flex;
   align-items: center;
@@ -199,11 +218,12 @@
 }
 
 .route-row__delete:hover {
-  background: #fecaca;
+  background: var(--red-soft);
 }
 
+/* light-gray chevron; JSX places it last so it is the leftmost element (RTL) */
 .route-row__chevron {
-  color: var(--text-400);
+  color: var(--text-300, #cbd5e1);
   display: flex;
   align-items: center;
   flex-shrink: 0;
