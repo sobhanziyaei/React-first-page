@@ -48,7 +48,10 @@
 
 html,
 body {
-  background: #e2e8f0;
+  /* Single page-wide surface color shared with the .app frame so there is
+     never a visible two-tone seam when the content is shorter than the
+     viewport (the body background fills any area below .app). */
+  background: #eef2f7;
   color: var(--text-900);
   -webkit-font-smoothing: antialiased;
 }
