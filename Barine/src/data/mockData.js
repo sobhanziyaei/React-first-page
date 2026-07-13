@@ -9,16 +9,6 @@ export const user = {
 
 export const stats = [
   {
-    id: 'income',
-    value: '۱۸.۵M',
-    label: 'درآمد کل',
-    sub: 'تومان',
-    badge: '+۱۲٪',
-    badgeType: 'green',
-    icon: 'trend',
-    iconColor: 'green',
-  },
-  {
     id: 'total',
     value: '۱۲',
     label: 'کل بارها',
@@ -27,6 +17,16 @@ export const stats = [
     badgeType: 'blue',
     icon: 'box',
     iconColor: 'blue',
+  },
+  {
+    id: 'income',
+    value: '۱۸.۵M',
+    label: 'درآمد کل',
+    sub: 'تومان',
+    badge: '+۱۲٪',
+    badgeType: 'green',
+    icon: 'trend',
+    iconColor: 'green',
   },
   {
     id: 'rating',

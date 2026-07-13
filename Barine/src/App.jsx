@@ -1,5 +1,4 @@
 import './App.css';
-import StatusBar from './components/StatusBar';
 import Header from './components/Header';
 import PageTitle from './components/PageTitle';
 import ProfileCard from './components/ProfileCard';
@@ -22,9 +21,6 @@ import {
 export default function App() {
   return (
     <div className="app">
-      {/* نوار وضعیت آیفون فقط در حالت موبایل نمایش داده می‌شود */}
-      <StatusBar />
-
       <div className="app__body">
         <Header items={navItems} activeId="registered" />
 

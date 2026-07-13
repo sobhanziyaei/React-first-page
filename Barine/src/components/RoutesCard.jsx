@@ -1,11 +1,16 @@
 import './RoutesCard.css';
 import { RouteIcon, PlusIcon, SearchIcon, TrashIcon, RouteArrow, ChevronLeft } from './Icons';
 
+// چرخه رنگ ردیف‌ها بر اساس ایندکس (آبی، سبز، بنفش)
+const ROW_THEMES = ['blue', 'green', 'purple'];
+
 // یک ردیف مسیر
-function RouteRow({ route }) {
+function RouteRow({ route, index, onDelete, onSelect }) {
+  const color = route.color || ROW_THEMES[index % ROW_THEMES.length];
+
   return (
-    <div className={`route-row route-row--${route.color}`}>
-      <div className={`route-row__icon route-row__icon--${route.color}`}>
+    <div className={`route-row route-row--${color}`}>
+      <div className={`route-row__icon route-row__icon--${color}`}>
         <RouteIcon size={22} />
       </div>
 
@@ -15,17 +20,31 @@ function RouteRow({ route }) {
           <RouteArrow size={16} />
           <span className="route-row__city">{route.to}</span>
         </div>
-        <div className="route-row__action">
+        <button
+          type="button"
+          className="route-row__action"
+          onClick={() => onSelect?.(route)}
+        >
           <SearchIcon size={13} />
           {route.action}
-        </div>
+        </button>
       </div>
 
-      <button className="route-row__delete" aria-label="حذف مسیر">
+      <button
+        type="button"
+        className="route-row__delete"
+        aria-label="حذف مسیر"
+        onClick={() => onDelete?.(route)}
+      >
         <TrashIcon size={17} />
       </button>
 
-      <button className="route-row__chevron" aria-label="مشاهده">
+      <button
+        type="button"
+        className="route-row__chevron"
+        aria-label="مشاهده"
+        onClick={() => onSelect?.(route)}
+      >
         <ChevronLeft size={16} />
       </button>
     </div>
@@ -33,11 +52,11 @@ function RouteRow({ route }) {
 }
 
 // کارت مسیرهای درخواستی
-export default function RoutesCard({ routes, meta }) {
+export default function RoutesCard({ routes, meta, onAdd, onDelete, onSelect }) {
   return (
     <section className="routes-card">
       <div className="routes-card__header">
-        <button className="routes-card__add">
+        <button type="button" className="routes-card__add" onClick={onAdd}>
           <PlusIcon size={16} />
           افزودن مسیر
         </button>
@@ -60,8 +79,14 @@ export default function RoutesCard({ routes, meta }) {
       </div>
 
       <div className="routes-card__list">
-        {routes.map((route) => (
-          <RouteRow key={route.id} route={route} />
+        {routes.map((route, index) => (
+          <RouteRow
+            key={route.id}
+            route={route}
+            index={index}
+            onDelete={onDelete}
+            onSelect={onSelect}
+          />
         ))}
       </div>
     </section>

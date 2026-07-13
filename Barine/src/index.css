@@ -53,8 +53,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  min-height: 100vh;
+/* Full-height chain: percentage heights resolve against the real containing
+   block up to the viewport, which is the most reliable cross-browser way to
+   make the app frame fill the visible screen (iOS Safari included). The
+   min-height: 100dvh enhancement keeps things accurate as the mobile URL bar
+   collapses/expands. */
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100dvh;
+}
+
+/* #root is a flex column so the .app frame stretches to fill it. */
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 button {

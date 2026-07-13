@@ -8,8 +8,11 @@ export const MenuIcon = ({ size = 22 }) => (
 
 export const UserIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="8" r="3.4" stroke="currentColor" strokeWidth="2" />
-    <path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="12" cy="8.2" r="4" fill="currentColor" />
+    <path
+      d="M4.5 19.5c0-4.1 3.4-6.8 7.5-6.8s7.5 2.7 7.5 6.8a1 1 0 01-1 1H5.5a1 1 0 01-1-1z"
+      fill="currentColor"
+    />
   </svg>
 );
 

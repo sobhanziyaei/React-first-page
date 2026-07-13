@@ -2,7 +2,10 @@
   position: relative;
   background: var(--card);
   border-top: 1px solid #eef2f7;
-  padding: 14px 18px 10px;
+  /* Extra bottom padding for the iOS home indicator (safe-area). The nav's
+     background still extends to the very bottom edge of the frame — only the
+     content is inset — so there is no visible gap below the bar. */
+  padding: 14px 18px calc(10px + env(safe-area-inset-bottom, 0px));
   border-radius: 26px 26px 0 0;
   box-shadow: 0 -8px 24px -16px rgba(15, 23, 42, 0.18);
   display: none;

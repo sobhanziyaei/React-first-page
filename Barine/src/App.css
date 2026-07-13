@@ -1,7 +1,14 @@
 /* ---------- پایه (Mobile-first) ---------- */
 .app {
   width: 100%;
+  /* Fill the flex parent (#root), which itself fills the full-height
+     html/body chain. This anchors the frame to the real viewport more
+     reliably than 100vh/100dvh alone. */
+  min-height: 100%;
   min-height: 100vh;
+  /* Dynamic viewport height so the frame fills the *visible* screen on mobile
+     (100vh includes the collapsible URL bar and causes the nav to float up). */
+  min-height: 100dvh;
   background: var(--bg);
   display: flex;
   flex-direction: column;
@@ -137,13 +144,22 @@
 @media (max-width: 640px) {
   body {
     padding: 0;
-    background: #e2e8f0;
+    background: var(--bg);
   }
 
   .app {
-    max-width: 480px;
-    margin: 0 auto;
+    /* Full-bleed on mobile: no desktop phone-frame constraints. */
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    /* Height via the reliable percentage chain (html/body/#root are all
+       height:100%), with 100vh fallback and 100dvh enhancement so the
+       frame is exactly as tall as the visible screen and the bottom nav
+       sits flush at the bottom — no gap below it. */
+    height: 100%;
     height: 100vh;
+    height: 100dvh;
     background: var(--bg);
     overflow: hidden;
   }

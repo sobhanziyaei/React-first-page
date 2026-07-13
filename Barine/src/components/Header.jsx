@@ -13,13 +13,9 @@ const navIconMap = {
 export default function Header({ items = [], activeId = 'registered' }) {
   return (
     <header className="header">
-      <div className="header__actions">
-        <button className="header__btn" aria-label="منو">
-          <MenuIcon />
-        </button>
-        <button className="header__btn header__btn--profile" aria-label="پروفایل">
-          <UserIcon />
-        </button>
+      <div className="header__brand">
+        <img src={deliveryIcon} alt="بارینه" className="header__brand-logo" />
+        <span className="header__brand-name">بارینه</span>
       </div>
 
       {/* ناوبری افقی که فقط در دسکتاپ نمایش داده می‌شود */}
@@ -39,9 +35,13 @@ export default function Header({ items = [], activeId = 'registered' }) {
         })}
       </nav>
 
-      <div className="header__brand">
-        <span className="header__brand-name">بارینه</span>
-        <img src={deliveryIcon} alt="بارینه" className="header__brand-logo" />
+      <div className="header__actions">
+        <button className="header__btn header__btn--profile" aria-label="پروفایل">
+          <UserIcon />
+        </button>
+        <button className="header__btn" aria-label="منو">
+          <MenuIcon />
+        </button>
       </div>
     </header>
   );
